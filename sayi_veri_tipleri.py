@@ -12,3 +12,4 @@ print(1.6 * 3.7)
 # VERİLERİN TİPİNE BAKALIM: type()
 print(type(5))
 print(type(19.7))
+
