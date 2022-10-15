@@ -42,7 +42,16 @@ sinav_basarili_mi = True #boolean
 
 print(x+y)
 
-print(x+ad) #hata verdi
+#print(x+ad) #hata verdi
 
 print(x+sinav_basarili_mi)
-print(ad+sinav_basarili_mi) # hata verdi
+# print(ad+sinav_basarili_mi) # hata verdi
+
+
+print(sinav_basarili_mi)
+
+print(str(sinav_basarili_mi))
+
+print(int(sinav_basarili_mi))
+
+print(type(str(x)))
