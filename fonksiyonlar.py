@@ -33,3 +33,6 @@ bir değeri varsa, o parametreye herhangi bir değer vermeden de fonksiyonu kull
 #   ➡ file: None (Dosya yok. Komut istemine çıktı veriyor)
 
 print("Teknoloji", "İmam", "Hatip", "Lisesi", sep="-")
+
+for sayi in range(50):
+    print("Python", end="-", file=open("log.txt", "a"))
