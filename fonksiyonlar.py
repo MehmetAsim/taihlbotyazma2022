@@ -31,3 +31,5 @@ bir değeri varsa, o parametreye herhangi bir değer vermeden de fonksiyonu kull
 #   ➡ sep: ' ' (Boşluk karakteri)
 #   ➡ end: '\n' (Yeni satır karakteri)
 #   ➡ file: None (Dosya yok. Komut istemine çıktı veriyor)
+
+print("Teknoloji", "İmam", "Hatip", "Lisesi", sep="-")
