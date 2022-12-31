@@ -5,8 +5,9 @@ from time import sleep
 
 
 class Tarayici:
-    def__init__(self)
+
+    def __init__(self):
         self.tarayici = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-    def al(self)
+    def al(self):
         return self.tarayici
