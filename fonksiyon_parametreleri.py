@@ -19,3 +19,5 @@ def ogrenci_kaydet(ad, soyad, notlar):
     dosya.write(f"Ad: {ad}, Soyad: {soyad}, Notlar: {notlar}, Ortalama: {ortalama} ")
 
     dosya.close()
+
+    ogrenci_kaydet(ad, soyad , notlar"")
