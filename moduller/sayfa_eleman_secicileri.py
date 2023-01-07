@@ -1,6 +1,6 @@
 
 
-from modluller.tarayici import Tarayici
+from moduller.tarayici import Tarayici
 from selenium.webdriver.common.by import By
 from time import sleep
 

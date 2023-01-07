@@ -8,6 +8,7 @@ class Tarayici:
 
     def __init__(self):
         self.tarayici = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+        self.tarayici.maximize_window()
 
     def al(self):
         return self.tarayici
