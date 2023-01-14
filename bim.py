@@ -1,7 +1,20 @@
 from moduller.tarayici import Tarayici
 from selenium.webdriver.common.by import By
 from time import sleep
+from urllib import request
+from openpyxl import Workbook
+from   openpyxl import  load_workbook
+import os
 
+
+excel_yolu =  ".bim.xlsx"
+if os.path.exists(excel_yolu):
+    ck = load_workbook(excel_yolu)
+    cs = ck.active
+else:
+    ck = Workbook()
+    cs = ck.active
+    cs.append(["Ad", "Görsel", "Marka", "Açıklama", "Fiyat"])
 tarayici_nesne = Tarayici()
 tarayici = tarayici_nesne.al()
 
@@ -21,7 +34,11 @@ for i, tarih in enumerate(tarihler):
     tarayici.execute_script("arguments[0].click();", tarih)
     sleep(2)
 
-
+    while True:
+        try:
+            tarayici.find_element(By.XPATH, "//a[href='javascript:;changeLPage();']").click()
+        except:
+             break
 
 
     urunler = tarayici.find_elements(By.XPATH, "//div[contains(@class, 'product')]")
@@ -30,10 +47,14 @@ for i, tarih in enumerate(tarihler):
             ad = urun.find_element(By.XPATH, ".//h2[@class='title']")
         except:
             continue
-        try:
-             urun.find_element(By.TAG_NAME, "img").screenshot(f"./gorseller/{ad.text}.png")
 
+        try:
+            img = urun.find_element(By.TAG_NAME, "img")
+            img_src = img.get_attribute("src")
+            img_adi = img_src.split("/")[-1]
+            request.urlretrieve(img_src, f"./gorseller/{img_adi}")
         except:
+
             continue
 
         try:
@@ -54,5 +75,11 @@ for i, tarih in enumerate(tarihler):
         print("Marka:", marka)
         print("Açıklama:", aciklama)
         print("Fiyat:", fiyat.replace("\n", ""))
+
+        tarayici.quit()
+        ck.save(excel_yolu)
+
+
+
 
 
